@@ -1,0 +1,25 @@
+html,
+body {
+    height: 100vh;
+    @extend %font;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px 0px 22px;
+}

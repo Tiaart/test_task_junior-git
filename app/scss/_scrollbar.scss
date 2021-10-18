@@ -1,0 +1,26 @@
+
+
+.simplebar-scrollbar::before {
+    width: 4px;
+    background-color: #BDBDBD;
+    border-radius: 0;
+    opacity: 1;
+}
+
+.simplebar-scrollbar.simplebar-visible.simplebar-hover::before{
+    opacity: 1;
+}
+
+.simplebar-scrollbar.simplebar-visible::before{
+    opacity: 1;
+}
+
+.simplebar-track.simplebar-vertical {
+    height: 100%;
+    width: 8px;
+    background-color: #eeeeee;
+}
+
+.simplebar-content-wrapper {
+    padding-right: 15px;
+}

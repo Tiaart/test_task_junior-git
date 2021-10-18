@@ -1,0 +1,377 @@
+@import '_global';
+@import '_reset';
+@import '_vars';
+@import '_libs';
+@import '_scrollbar';
+@import '_tabs';
+
+.header {
+    &__inner {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // margin-top: 32px;
+    }
+    &__btn {
+        position: relative;
+        @extend %button;
+        cursor: pointer;
+        z-index: 5;
+    }
+    &_btnhover:hover {
+        background: #CC221B;
+    }
+    &__btnExit {
+        width: 113px;
+        height: 38px;
+        border: none;
+        border-radius: 4px;
+        background: #fff;
+        color:#E5261E;
+        @extend %font;
+        font-weight: 500;
+    }
+
+}
+
+.header__logo {
+    width: 182px;
+    height: 33px;
+}
+
+.header__search {
+    display: flex;
+    justify-content: center;
+    width: 402px;
+    &-input {
+        width: 320px;
+        margin-right: 32px;
+        @extend %input;
+    }
+
+    &-btn {
+        border: none;
+        background-color: transparent;
+        font-weight: 500;
+        color: #E5261E;
+        cursor: pointer;
+    }
+}
+
+.users {
+    position: absolute;
+    top: 8px;
+    right: 115px;
+    border: none;
+    outline: 0;
+    text-align: right;
+    @extend %font;
+    font-weight: 500;
+    z-index: 0;
+}
+
+// ------------------------modal------------------------
+
+.modal-bg {
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(#333333, 0.6);
+    z-index: 100;
+    .modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        width: 304px;
+        padding: 36px;
+        border-radius: 8px;
+        &__title {
+            margin-bottom: 24px;
+        }
+        &__label {
+            display: flex;
+            flex-direction: column-reverse;
+            width: 100%;
+            &-input {
+                @extend %input;
+                margin-bottom: 24px;
+                height: 30px;
+            }
+        }    
+        &__checkbox {
+            display: flex;
+            align-self: flex-start;
+            align-items: center;
+            & input {
+                margin-right: 8px;
+            }
+        }    
+        &__btn {
+            @extend %button;
+            margin-top: 111px;
+            cursor: pointer;
+        }
+    }
+}
+
+.modal-close {
+    display: none;
+}
+
+// ------------------------main------------------------
+.main__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__tabs {
+    @extend %fontNav;
+    margin-bottom: 41px;
+    .nav__tabs-item {
+        margin-right: 24px;
+        cursor: pointer;
+    }
+}
+
+.film__content {
+    width: 100%;
+    margin-bottom: 72px;
+    & > p {
+        @extend %fontTitle;
+        margin-bottom: 16px;
+    }
+
+}
+
+.film__cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.film__cards-item {
+    position: relative;
+    max-width: 280px;
+    cursor: pointer;
+    & img {
+        border-radius: 8px;
+        margin-bottom: 16px;
+    }
+    & p {
+        @extend %fontCard;
+    }
+    .item-hover {
+        height: 370px;
+        position: absolute;
+        border-radius: 8px;
+        opacity: 0;
+        padding: 16px;
+    }
+}
+
+.film__cards-item:hover .item-hover {
+    position: absolute;
+    opacity: 1;
+    background-color: rgb(#333333, 0.8);
+    font-size: 16px;
+    line-height: 22px;
+    color: #fff;
+}
+
+
+.film__genre {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .film__genre-item {
+        width: 280px;
+        height: 208px;
+        box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+        border-radius: 6px;
+        position: relative;
+        cursor: pointer;
+        &:nth-child(1) {
+            background: linear-gradient(128deg, #F2C94C 8%, #F29A4A 91%);
+            opacity: 0.8;
+            &:hover {
+                opacity: 1; 
+            }
+            &::before {
+                content:"";
+                background-image: url('../images/😁.svg');
+                @extend %genre;
+            }
+        }  
+        &:nth-child(2) {
+            background: linear-gradient(128deg, #F2994A 8%, #EB5757 91%);
+            opacity: 0.8;
+            &:hover {
+                opacity: 1; 
+            }
+            &::before {
+                content:"";
+                background-image: url('../images/😭.svg');
+                position: absolute;
+                @extend %genre;
+            }
+        }
+        &:nth-child(3) {
+            background: linear-gradient(128deg, #56CCF2 8%, #2F80ED 91%);
+            opacity: 0.8;
+            &:hover {
+                opacity: 1; 
+            }
+            &::before {
+                content:"";
+                background-image: url('../images/👽.svg');
+                @extend %genre;
+            }
+        }
+        &:nth-child(4) {
+            background: linear-gradient(128deg, #828282 8%, #333333 91%);
+            opacity: 0.8;
+            &:hover {
+                opacity: 1; 
+            }
+            &::before {
+                content:"";
+                background-image: url('../images/👻.svg');
+                @extend %genre;
+            }
+        }
+        & p {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            @extend %fontCard;
+            color: #fff;
+            margin-top: 160px;
+        }
+    }
+}
+
+.TVchannel__inner {
+    width: 1196px;
+    height: 735px;
+}
+
+.TVchannel__content {
+    margin-bottom: 72px;
+}
+
+.TVchannel__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 21px;
+    padding-bottom: 7px;
+    background-color: #F2F2F2;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    .TVchannel__title {
+        margin-left: 400px;
+        margin-bottom: 17px;
+    }
+    .TVchannel__program {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 400px;
+        margin-bottom: 19px;
+    }
+    .TVchannel__program-item {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 12px;
+    }
+
+    .TVchannel__program-item:nth-child(1) > p {
+        color: #E5261E;
+    }
+
+    .TVchannel__program-time {
+        margin-right: 16px;
+    }
+}
+
+.TVchannel__item--first::before {
+    content:"";
+    background-image: url('../images/1.svg');
+    @extend %channel;
+    width: 49px;
+    height: 64px;
+}
+.TVchannel__item--two::before {
+    content:"";
+    background-image: url('../images/2x2.svg');
+    @extend %channel;
+    top: 56px;
+    left: 143px;
+    width: 114px;
+    height: 49px;
+}
+.TVchannel__item--rbc::before {
+    content:"";
+    background-image: url('../images/rbc.svg');
+    @extend %channel;
+    top: 54px;
+    left: 172px;
+    width: 54px;
+    height: 54px;
+}
+.TVchannel__item--amedia::before {
+    content:"";
+    background-image: url('../images/amedia.svg');
+    @extend %channel;
+    top: 48px;
+    left: 168px;
+    width: 64px;
+    height: 64px;
+}
+
+
+
+// ------------------------footer------------------------
+.footer {
+    background-color: #F2F2F2;
+    &__inner {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &__logo {
+        margin-right: 40px;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+    &__content p {
+        margin-bottom: 6px;
+        font-weight: 400;
+        @extend %font;
+    }
+    &__content-anhor {
+        margin-bottom: 10px;
+        @extend %font; 
+    }
+    &__content-site {
+        font-weight: 500;
+        color: #1F4766;
+    }
+}
+
+@import 'media';
