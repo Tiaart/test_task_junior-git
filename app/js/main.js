@@ -1,13 +1,13 @@
 // Модальное окно (открыть/закрыть)
-const btnClose = document.querySelector('.modal__btn');
+const modalBtnEnter = document.querySelector('.modal__btn');
 const modal =  document.querySelector('.modal-bg');
-const btnOpen = document.querySelector('.header__btn');
+const headerbtnEnter = document.querySelector('.header__btn');
 
-btnOpen.addEventListener('click', () =>{
+headerbtnEnter.addEventListener('click', () =>{
     modal.classList.remove('modal-close');
 })
 
-btnClose.addEventListener('click', () =>{
+modalBtnEnter.addEventListener('click', () =>{
     modal.classList.add('modal-close');
 })
 
@@ -38,7 +38,7 @@ function getTab(event) {
 
 // Изменение имени пользователя:
 
-btnOpen.addEventListener('click', getLogin(saveInputUsers));
+headerbtnEnter.addEventListener('click', getLogin(saveInputUsers));
 
 function getLogin(callback) {
 
@@ -55,10 +55,15 @@ function getLogin(callback) {
         }
     });
 
-    btnClose.addEventListener('click', (event) => {
+    modalBtnEnter.addEventListener('click', (event) => {
         event.preventDefault();
         callback(userLogin);
-        btnExit();
+
+        if (document.querySelector('.modal_login').value === '') {
+            modal.classList.add('modal-close');
+        } else {
+            btnExit();
+        }
     });
 
     onLoad();
@@ -72,16 +77,19 @@ function saveInputUsers(userLogin) {
 
 function onLoad() {
     window.onload = document.querySelector('.users').setAttribute('placeholder', `${localStorage.getItem('login')}`);
+    if (localStorage.getItem('login') === null) {
+        document.querySelector('.users').style.display = 'none';
+    }
 }
 
 function btnExit() {
-    btnOpen.innerHTML = 'Выйти';
-    btnOpen.classList.add('header__btnExit');
-    btnOpen.classList.remove('header_btnhover');
-    btnOpen.addEventListener('click', () =>{
+    headerbtnEnter.innerHTML = 'Выйти';
+    headerbtnEnter.classList.add('header__btnExit');
+    headerbtnEnter.classList.remove('header_btnhover');
+    headerbtnEnter.addEventListener('click', () =>{
         modal.classList.add('modal-close'); 
     })
-}
+}    
 
 if (window.innerWidth <= 1000) {
     document.querySelector('.TVchannel__inner').removeAttribute('data-simplebar');
