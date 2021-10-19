@@ -210,7 +210,7 @@
             }
             &::before {
                 content:"";
-                background-image: url('../images/😁.svg');
+                background-image: url('../images/comedy.svg');
                 @extend %genre;
             }
         }  
@@ -222,7 +222,7 @@
             }
             &::before {
                 content:"";
-                background-image: url('../images/😭.svg');
+                background-image: url('../images/drama.svg');
                 position: absolute;
                 @extend %genre;
             }
@@ -235,7 +235,7 @@
             }
             &::before {
                 content:"";
-                background-image: url('../images/👽.svg');
+                background-image: url('../images/fantasy.svg');
                 @extend %genre;
             }
         }
@@ -247,7 +247,7 @@
             }
             &::before {
                 content:"";
-                background-image: url('../images/👻.svg');
+                background-image: url('../images/horror.svg');
                 @extend %genre;
             }
         }
@@ -309,14 +309,14 @@
 
 .TVchannel__item--first::before {
     content:"";
-    background-image: url('../images/1.svg');
+    background-image: url('../images/one.svg');
     @extend %channel;
     width: 49px;
     height: 64px;
 }
 .TVchannel__item--two::before {
     content:"";
-    background-image: url('../images/2x2.svg');
+    background-image: url('../images/two.svg');
     @extend %channel;
     top: 56px;
     left: 143px;
